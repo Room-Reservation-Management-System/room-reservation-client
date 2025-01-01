@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../register/services/auth/auth.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
+import { UserStorageService } from '../../services/storage/user-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,15 @@ export class LoginComponent {
   submitForm(){
     this.authService.login(this.loginForm.value).subscribe(res=>{
       console.log(res);
+      if(res.userId != null){
+        const user = {
+          id: res.userId,
+          role: res.userRole
+        }
+
+        UserStorageService.saveUser(user);
+        UserStorageService.saveToken(res.jwt);
+      }
     }, error=>{
       this.message
       .error(
