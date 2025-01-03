@@ -37,6 +37,12 @@ export class LoginComponent {
 
         UserStorageService.saveUser(user);
         UserStorageService.saveToken(res.jwt);
+
+        if(UserStorageService.isAdminLoggedIn()){
+          this.router.navigateByUrl('/admin/dashboard');
+        }else if(UserStorageService.isCustomerLoggedIn()){
+          this.router.navigateByUrl('/customer/rooms');
+        }
       }
     }, error=>{
       this.message
