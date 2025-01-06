@@ -28,6 +28,13 @@ export class AdminService {
       headers: this.createAuthorizationHeader(),
     })
   }
+
+  updateRoomDetails(id:number, rommDto:any): Observable<any>{
+    return this.http.put(BASIC_URL+ `api/admin/room/${id}`, rommDto,{
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
   createAuthorizationHeader(){
     let authHeaders: HttpHeaders = new HttpHeaders();
     return authHeaders.set(
