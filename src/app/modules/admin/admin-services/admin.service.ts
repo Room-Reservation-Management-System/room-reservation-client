@@ -26,13 +26,19 @@ export class AdminService {
   getRoomById(id:number): Observable<any>{
     return this.http.get(BASIC_URL + `api/admin/room/${id}`,{
       headers: this.createAuthorizationHeader(),
-    })
+    });
   }
 
   updateRoomDetails(id:number, rommDto:any): Observable<any>{
     return this.http.put(BASIC_URL+ `api/admin/room/${id}`, rommDto,{
       headers: this.createAuthorizationHeader()
     })
+  }
+
+  deleteRoom(roomId:number): Observable<any>{
+    return this.http.delete(BASIC_URL + `api/admin/room/${roomId}`,{
+      headers: this.createAuthorizationHeader(),
+    });
   }
 
   createAuthorizationHeader(){
