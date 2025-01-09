@@ -5,6 +5,7 @@ import { CustomerRoutingModule } from './customer-routing.module';
 import { CustomerComponent } from './customer.component';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { NgZorroAntdModule } from 'src/app/NgZorroAntdModule';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { NgZorroAntdModule } from 'src/app/NgZorroAntdModule';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     CustomerRoutingModule,
     NgZorroAntdModule
   ]
