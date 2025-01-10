@@ -6,12 +6,14 @@ import { CustomerComponent } from './customer.component';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { NgZorroAntdModule } from 'src/app/NgZorroAntdModule';
 import { FormsModule } from '@angular/forms';
+import { ViewBookingsComponent } from './components/rooms/view-bookings/view-bookings.component';
 
 
 @NgModule({
   declarations: [
     CustomerComponent,
-    RoomsComponent
+    RoomsComponent,
+    ViewBookingsComponent
   ],
   imports: [
     CommonModule,
